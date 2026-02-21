@@ -1,0 +1,22 @@
+.main-container {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    width: 80%;
+    margin-inline: auto;
+    
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    width: 20%
+}
+
+.questions-container {
+    padding: 10px 0px 0px 10px;
+}
+
+.button {
+    height: 150px;
+}

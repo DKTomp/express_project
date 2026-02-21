@@ -1,4 +1,8 @@
-.button-container {
+.form-container {
+    width: 40%;
+}
+
+.button-box {
     display: flex;
     flex-direction: row;
 }
