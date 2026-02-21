@@ -7,7 +7,7 @@ try {
         host: 'localhost',
         user: 'root',
         password: 'October191!',
-        database: 'studentdb'
+        database: 'projectdb'
     })
     console.log('Connected to database')
 }
