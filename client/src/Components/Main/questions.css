@@ -10,11 +10,25 @@
 .button-container {
     display: flex;
     flex-direction: column;
-    width: 20%
+    min-width: 20%
 }
 
-.questions-container {
-    padding: 10px 0px 0px 10px;
+.text-container {
+    padding: 10px 10px 0px 10px;
+}
+
+.initial-container {
+    margin-left: 5px;
+}
+
+.question-container {
+    border: 1px solid black;
+    padding: 5px 0px 0px 10px;
+    margin-bottom: 5px;
+}
+
+hr {
+    width: 99%;
 }
 
 .button {

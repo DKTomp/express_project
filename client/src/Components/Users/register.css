@@ -1,0 +1,28 @@
+.body-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 100px;
+    
+}
+
+.form1-container {
+    width: 80%
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.input {
+    width: 400px
+}
+
+.error-text {
+    color: red;
+    width: 300px;
+    
+}
+
+

@@ -22,9 +22,15 @@ function Questions () {
                     <button className="button" onClick={() => changetext('hurricane')}>Hurricanes</button>
                     <button className="button" onClick={() => changetext('winter')}>Winter Weather</button>
                 </div>
-                <div className="questions-container">
+                <div className="text-container">
                     {displayText.map ((question) => 
-                        <div className="mb-3">{question.content}</div>
+                        <>
+                            <div className={question.description ? 'question-container' : 'initial-container'}>
+                                <p className="mb-3 question" >{question.description}</p>
+                                <div>{question.description ? <hr/> : ''}</div>
+                                <p className="mb-3 answer">{question.content}</p>
+                            </div>
+                        </>
                     )}
                 </div>
             </div>

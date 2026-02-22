@@ -1,4 +1,4 @@
-//import './App.css';
+import './App.css';
 import Login from './Components/Users/login';
 import Register from './Components/Users/register'
 import Questions from './Components/Main/questions'
