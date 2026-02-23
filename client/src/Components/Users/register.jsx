@@ -20,7 +20,8 @@ function Register() {
     })
 
     const [usernameError, setUsernameError] = useState(false)
-    const [passwordError, setPasswordError] = useState(false)
+    const [passwordMatchError, setPasswordMatchError] = useState(false)
+    const [passwordValidateError, setPasswordValidateError] = useState(false)
 
     function handleChange (event) {
             let inputName = event.target.name
@@ -34,12 +35,13 @@ function Register() {
         setCheckPassword ({...checkPassword, [inputvalname]: inputValPassword})
     }
 
-
     async function handleSubmit (event) {
             event.preventDefault()
             console.log (formData)
+            resetValidation()
             validateusername()
             validatePassword()
+            matchPassword()
             console.log(sendData)
             if (sendData === true) {
                 const response = await axios.post ("http://localhost:4000/user/register", formData)
@@ -58,11 +60,26 @@ function Register() {
         }  
     }
 
-    function validatePassword() {
+    function matchPassword() {
         if (formData.password !== checkPassword.valpassword) {
-            setPasswordError(true)
+            setPasswordMatchError(true)
             sendData = false
         }
+    }
+
+    function validatePassword() {
+        const hasNumber = /\d/.test(formData.password)
+        if (formData.password.length < 8 || hasNumber === false) {
+            setPasswordValidateError(true)
+            sendData = false
+        }
+    }
+
+    function resetValidation() {
+        sendData = true
+        setUsernameError(false)
+        setPasswordMatchError(false)
+        setPasswordValidateError(false)
     }
 
     return (
@@ -94,19 +111,22 @@ function Register() {
                                 placeholder="Password" 
                                 onChange={(event)=>handleChange(event)} 
                             />
-                            <p className='error-text'>{passwordError ? "Passwords do not match" : ""}</p>
+                            <p className='error-text'>{passwordValidateError ? "Password must contain at least 8 characters and at least one number" : ""}</p>
                         </div> 
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formValidatePassword">
                         <Form.Label>Re-enter Password</Form.Label>
-                        <Form.Control
-                            className='input'
-                            type="password" 
-                            name="valpassword" 
-                            placeholder="Password" 
-                            onChange={(event)=>reenterPassword(event)} 
-                        />    
+                        <div className='input-container'>
+                            <Form.Control
+                                className='input'
+                                type="password" 
+                                name="valpassword" 
+                                placeholder="Password" 
+                                onChange={(event)=>reenterPassword(event)} 
+                            />
+                            <p className='error-text'>{passwordMatchError ? "Passwords do not match" : ""}</p>
+                        </div>   
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
