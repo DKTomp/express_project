@@ -2,10 +2,16 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
+import './Header.css'
 
 function NavBar() {
+  function logOut() {
+    localStorage.setItem ("isLoggedIn", false)
+    console.log(localStorage.getItem ("isLoggedIn"))
+  }
+
   return (
-    <Navbar expand="lg" className="mb-3 bg-body-tertiary">
+    <Navbar expand="lg" bg="primary" data-bs-theme="dark" className='mb-3'>
       <Container>
         <Navbar.Brand href="/">Weather FAQ</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -14,6 +20,11 @@ function NavBar() {
             <Nav.Link as={NavLink} to="/">Home</Nav.Link>
             <Nav.Link as={NavLink} to="/register">Register</Nav.Link>
             <Nav.Link as={NavLink} to="/questions">Questions</Nav.Link>
+          </Nav>
+          <Nav className="ms-auto">
+            <Navbar.Text className='logout-container'>
+              <a className='logout' href="/" onClick={logOut}>Logout</a>
+            </Navbar.Text>
           </Nav>
         </Navbar.Collapse>
       </Container>

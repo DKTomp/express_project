@@ -28,7 +28,10 @@ function Login() {
             console.log (response.data)
             if (response.data.length === 0)
                 return;
-            navigate('/questions')
+            else {
+                localStorage.setItem ("isLoggedIn", true)
+                navigate('/questions')
+            }
             } catch (error) {
                 console.log(error)
         }
@@ -37,7 +40,7 @@ function Login() {
     return (
         <>
             <NavBar />
-            <Form autoComplete="off" className='mx-auto form-container'>
+            <Form autoComplete="off" className='mx-auto mt-3 form-container'>
                 <Form.Group className="mb-3" controlId="formUserName">
                     <Form.Label>User Name</Form.Label>
                     <Form.Control 

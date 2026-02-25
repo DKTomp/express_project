@@ -1,15 +1,13 @@
-.main-container {
+.topic {
+    color: #0D6EFD;
     display: flex;
-    flex-direction: row;
-    border: 2px solid black;
-    width: 80%;
-    margin-inline: auto;
-    
+    justify-content: center;
 }
 
 .button-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
     min-width: 20%
 }
 
@@ -25,6 +23,7 @@
     border: 1px solid black;
     padding: 5px 0px 0px 10px;
     margin-bottom: 5px;
+    color: #0D6EFD;
 }
 
 hr {
@@ -32,5 +31,35 @@ hr {
 }
 
 .button {
-    height: 150px;
+    all: unset;
+    cursor: pointer;
+    height: 270px;
+    width: 450px;
+    background-color: #111111;
+    color: #0D6EFD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px black;
+
+    -webkit-text-stroke: 2px black;
+    -webkit-text-stroke-width: 3px;
+    paint-order: stroke fill;
+}
+
+.image1 {
+    background-image: url('./Images/Tornado.jpg');
+    background-size: cover;
+}
+
+.image2 {
+    background-image: url('./Images/hurricane.jpeg');
+    background-size: cover;
+}
+
+.image3 {
+    background-image: url('./Images/snow.png');
+    background-size: cover;
 }

@@ -54,7 +54,7 @@ function Register() {
     async function validateusername() {
         const response = await axios.post ("http://localhost:4000/user/validateusername", formData)
         console.log(response.data)
-        if (response.data.length > 0) {
+        if (response.data.length > 0 || formData.userName.length === 0) {
             setUsernameError(true)
             sendData = false
         }  
@@ -85,7 +85,7 @@ function Register() {
     return (
         <>
             <NavBar />
-            <div className='body-container'>
+            <div className='mt-3 body-container'>
                 <Form autoComplete="off" className='form1-container'>
                     <Form.Group className="mb-3" controlId="formUserName">
                         <Form.Label>User Name</Form.Label>
@@ -97,7 +97,7 @@ function Register() {
                                 placeholder="Enter Username" 
                                 onChange={(event)=>handleChange(event)} 
                             />
-                            <p className='error-text'>{usernameError ? "User name already exists" : ""}</p>
+                            <p className='error-text'>{usernameError ? "Invalid user name / User name already exists" : ""}</p>
                         </div>
                     </Form.Group>
     
