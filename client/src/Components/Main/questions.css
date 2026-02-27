@@ -12,7 +12,10 @@
 }
 
 .text-container {
+    background-color: #111111;
     padding: 10px 10px 0px 10px;
+    width: 95%;
+    margin-inline: auto;
 }
 
 .initial-container {
@@ -20,7 +23,7 @@
 }
 
 .question-container {
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 5px 0px 0px 10px;
     margin-bottom: 5px;
     color: #0D6EFD;
@@ -28,6 +31,7 @@
 
 hr {
     width: 99%;
+    color: rgb(191, 191, 191);
 }
 
 .button {

@@ -18,15 +18,16 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={NavLink} to="/">Home</Nav.Link>
-            <Nav.Link as={NavLink} to="/register">Register</Nav.Link>
             <Nav.Link as={NavLink} to="/questions">Questions</Nav.Link>
           </Nav>
           <Nav className="ms-auto">
+            <Navbar.Text className="text"></Navbar.Text>
             <Navbar.Text className='logout-container'>
               <a className='logout' href="/" onClick={logOut}>Logout</a>
             </Navbar.Text>
           </Nav>
         </Navbar.Collapse>
+
       </Container>
     </Navbar>
   );

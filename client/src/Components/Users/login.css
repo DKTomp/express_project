@@ -7,3 +7,8 @@
     display: flex;
     flex-direction: row;
 }
+
+.title-text1 {
+    color: #0D6EFD;
+    margin-left: 30%;
+}

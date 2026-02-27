@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import { Form, Button} from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import NavBar from '../Header';
+import NavBar from '../Main/Header';
 import './login.css';
 
 
@@ -25,7 +24,7 @@ function Login() {
             event.preventDefault()
             console.log (formData)
             const response = await axios.post ("http://localhost:4000/user/login", formData)
-            console.log (response.data)
+            console.log (response.data[0].username)
             if (response.data.length === 0)
                 return;
             else {
@@ -40,6 +39,7 @@ function Login() {
     return (
         <>
             <NavBar />
+            <h1 className='title-text1'>Login</h1>
             <Form autoComplete="off" className='mx-auto mt-3 form-container'>
                 <Form.Group className="mb-3" controlId="formUserName">
                     <Form.Label>User Name</Form.Label>
@@ -64,17 +64,11 @@ function Login() {
                 <div className='button-box'>
                     <div>
                         <Button variant="primary" type="submit" onClick = {(event)=>handleSubmit (event)} >
-                            Submit
+                            Login
                         </Button>
                     </div>
 
-                    <div className='ms-3'>Not yet a registered user?</div>
-
-                    <div>
-                        <LinkContainer to="/register">
-                            <Button className='ms-3' variant="primary" type="button" >Register</Button>
-                        </LinkContainer>
-                    </div>
+                    <a className='ms-5' href="/register">Register new user</a>
                 </div>
             </Form>
         </>

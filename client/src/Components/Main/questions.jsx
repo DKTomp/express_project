@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
-import NavBar from "../Header"
+import NavBar from "./Header"
 import './questions.css'
 
 function Questions () {
@@ -30,10 +30,10 @@ function Questions () {
                 <button className="button image3 rounded-4 mx-3" onClick={() => changetext('winter')}>Winter Weather</button>
             </div>
             <h1 className="topic">{topic}</h1>
-            <div className="text-container">
+            <div className="text-container rounded-3 pb-1">
                 {displayText.map ((question) => 
                     <>
-                        <div className={question.description ? 'question-container mx-5' : 'initial-container'}>
+                        <div className={question.description ? 'question-container mx-5 mb-3 rounded-2' : 'initial-container'}>
                             <p className="mb-3 question" >{question.description}</p>
                             <div>{question.description ? <hr/> : ''}</div>
                             <p className="mb-3 answer">{question.content}</p>

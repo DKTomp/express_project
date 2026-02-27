@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Form, Button} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import NavBar from '../Header';
+import NavBar from '../Main/Header';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './register.css';
@@ -22,6 +22,7 @@ function Register() {
     const [usernameError, setUsernameError] = useState(false)
     const [passwordMatchError, setPasswordMatchError] = useState(false)
     const [passwordValidateError, setPasswordValidateError] = useState(false)
+    const [emailValidateError, setEmailValidateError] = useState(false)
 
     function handleChange (event) {
             let inputName = event.target.name
@@ -41,6 +42,7 @@ function Register() {
             resetValidation()
             validateusername()
             validatePassword()
+            validateEmail()
             matchPassword()
             console.log(sendData)
             if (sendData === true) {
@@ -75,16 +77,26 @@ function Register() {
         }
     }
 
+    function validateEmail() {
+        const checkForAt = formData.email.includes('@')
+        if (checkForAt === false) {
+            setEmailValidateError(true)
+            sendData = false
+        }
+    }
+
     function resetValidation() {
         sendData = true
         setUsernameError(false)
         setPasswordMatchError(false)
         setPasswordValidateError(false)
+        setEmailValidateError(false)
     }
 
     return (
         <>
             <NavBar />
+            <h1 className='title-text'>Register New User</h1>
             <div className='mt-3 body-container'>
                 <Form autoComplete="off" className='form1-container'>
                     <Form.Group className="mb-3" controlId="formUserName">
@@ -131,17 +143,20 @@ function Register() {
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email Address</Form.Label>
-                        <Form.Control
-                            className='input'
-                            type="email" 
-                            name="email" 
-                            placeholder="Enter Email" 
-                            onChange={(event)=>handleChange(event)} 
-                        />    
+                        <div className='input-container'>
+                            <Form.Control
+                                className='input'
+                                type="email" 
+                                name="email" 
+                                placeholder="Enter Email" 
+                                onChange={(event)=>handleChange(event)} 
+                            />
+                            <p className='error-text'>{emailValidateError ? "Invalid Email" : ""}</p>
+                        </div>
                     </Form.Group>
             
                     <Button variant="primary" type="submit" onClick = {(event)=>handleSubmit (event)} >
-                        Submit
+                        Register
                     </Button>
                 </Form>
             </div>
