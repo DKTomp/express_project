@@ -7,7 +7,6 @@ import './Header.css'
 function NavBar() {
   function logOut() {
     localStorage.setItem ("isLoggedIn", false)
-    console.log(localStorage.getItem ("isLoggedIn"))
   }
 
   return (
@@ -27,7 +26,6 @@ function NavBar() {
             </Navbar.Text>
           </Nav>
         </Navbar.Collapse>
-
       </Container>
     </Navbar>
   );

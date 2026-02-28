@@ -9,7 +9,6 @@ function Questions () {
 
     async function changetext (category) {
         const response = await axios.get(`http://localhost:4000/main/${category}`)
-        console.log (response.data)
         setDisplayText(response.data)
         if (category === "severe") {
             setTopic("Severe Weather")
@@ -18,8 +17,7 @@ function Questions () {
         } else if (category === "winter") {
             setTopic("Winter Weather")
         }
-        console.log(displayText)
-        }
+    }
 
     return (
         <>

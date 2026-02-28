@@ -38,16 +38,13 @@ function Register() {
 
     async function handleSubmit (event) {
             event.preventDefault()
-            console.log (formData)
             resetValidation()
             validateusername()
             validatePassword()
             validateEmail()
             matchPassword()
-            console.log(sendData)
             if (sendData === true) {
                 const response = await axios.post ("http://localhost:4000/user/register", formData)
-                console.log (response.data)
                 navigate('/')
             }
             return;
@@ -55,7 +52,6 @@ function Register() {
 
     async function validateusername() {
         const response = await axios.post ("http://localhost:4000/user/validateusername", formData)
-        console.log(response.data)
         if (response.data.length > 0 || formData.userName.length === 0) {
             setUsernameError(true)
             sendData = false

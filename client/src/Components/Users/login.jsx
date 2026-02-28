@@ -22,9 +22,7 @@ function Login() {
     async function handleSubmit (event) {
         try {
             event.preventDefault()
-            console.log (formData)
             const response = await axios.post ("http://localhost:4000/user/login", formData)
-            console.log (response.data[0].username)
             if (response.data.length === 0)
                 return;
             else {
@@ -32,7 +30,6 @@ function Login() {
                 navigate('/questions')
             }
             } catch (error) {
-                console.log(error)
         }
     }
 
