@@ -5,18 +5,10 @@ import './questions.css'
 
 function Questions () {
     const [displayText, setDisplayText] = useState([{content: "Select a category to view it's questions"}])
-    const [topic, setTopic] = useState('')
 
     async function changetext (category) {
         const response = await axios.get(`http://localhost:4000/main/${category}`)
         setDisplayText(response.data)
-        if (category === "severe") {
-            setTopic("Severe Weather")
-        } else if (category === "hurricane")  {
-            setTopic("Hurricanes")
-        } else if (category === "winter") {
-            setTopic("Winter Weather")
-        }
     }
 
     return (
@@ -27,7 +19,7 @@ function Questions () {
                 <button className="button image2 rounded-4 mx-3" onClick={() => changetext('hurricane')}>Hurricanes</button>
                 <button className="button image3 rounded-4 mx-3" onClick={() => changetext('winter')}>Winter Weather</button>
             </div>
-            <h1 className="topic">{topic}</h1>
+            <h1 className="topic">{displayText[0].name}</h1>
             <div className="text-container rounded-3 pb-1">
                 {displayText.map ((question) => 
                     <>

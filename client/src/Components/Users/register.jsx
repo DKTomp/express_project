@@ -44,7 +44,7 @@ function Register() {
             validateEmail()
             matchPassword()
             if (sendData === true) {
-                const response = await axios.post ("http://localhost:4000/user/register", formData)
+                await axios.post ("http://localhost:4000/user/register", formData)
                 navigate('/')
             }
             return;
