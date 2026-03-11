@@ -32,14 +32,14 @@ function Questions () {
                     </>
                 )}
             </div>
-            <h1 className="topic">{displayText[0].name}</h1>
+            <h1 className="topic">{displayText.length > 1 ? displayText[0].name : ''}</h1>
             <div id='1' className="text-container rounded-3 pb-1">
                 {displayText.map ((question) => 
                     <>
                         <div className={question.description ? 'question-container mx-5 mb-3 rounded-2' : 'initial-container'}>
-                            <p className="mb-3 question" >{question.description}</p>
+                            <p className="mb-3 question" >{question.description ? question.description : ''}</p>
                             <div>{question.description ? <hr/> : ''}</div>
-                            <p className="mb-3 answer">{question.content}</p>
+                            <p className="mb-3 answer">{question.content ? question.content : ''}</p>
                         </div>
                     </>
                 )}

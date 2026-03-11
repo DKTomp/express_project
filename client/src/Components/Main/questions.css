@@ -21,6 +21,7 @@
 
 .initial-container {
     margin-left: 5px;
+    color: #0D6EFD;
 }
 
 .question-container {
@@ -45,8 +46,4 @@ hr {
     font-size: 40px;
     font-weight: 600;
     text-shadow: 0 2px 4px black;
-
-    -webkit-text-stroke: 2px black;
-    -webkit-text-stroke-width: 3px;
-    paint-order: stroke fill;
 }
